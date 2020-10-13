@@ -1,0 +1,14 @@
+.album-list-wrapper {
+  .album {
+    padding: 5px;
+    margin: 5px 0;
+  }
+
+  .title {
+    font-family: "700", sans-serif;
+  }
+  .username {
+    font-family: "500", sans-serif;
+    color: $black;
+  }
+}

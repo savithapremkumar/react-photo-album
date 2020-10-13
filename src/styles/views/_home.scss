@@ -1,0 +1,10 @@
+.album-list-wrapper {
+  margin: 20px;
+}
+
+@media (min-width: 1024px) {
+  .album-list-wrapper {
+    max-width: 1000px;
+    margin: 20px auto;
+  }
+}

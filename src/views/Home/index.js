@@ -8,7 +8,7 @@ import Error from "../../components/Error/index";
 import { Link } from "react-router-dom";
 import { LoadingMessage } from "../../constants/messages";
 
-class Home extends Component {
+export class Home extends Component {
   shouldComponentRender = () => {
     const { pending } = this.props.album.pending;
     if (pending === false) return false;
@@ -33,8 +33,10 @@ class Home extends Component {
         </div>
 
         <div className="album-list-wrapper">
-          {album.error !== null && <Error errorMsg={album.error}></Error>}
-          {album.albums !== null &&
+          {album.error !== null ? (
+            <Error errorMsg={album.error}></Error>
+          ) : (
+            album.albums !== null &&
             Array.isArray(album.albums) &&
             album.albums.length > 0 && (
               <div>
@@ -47,6 +49,7 @@ class Home extends Component {
                         title: data.title,
                       }}
                       key={index}
+                      className="link"
                     >
                       <Album
                         title={data.title}
@@ -56,7 +59,8 @@ class Home extends Component {
                   );
                 })}
               </div>
-            )}
+            )
+          )}
         </div>
       </div>
     );
